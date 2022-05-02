@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{club.name}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {font-family: "Montserrat", sans-serif}
+        h6 {white-space: pre-line}
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-indigo w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-black"> <b><u>Home</u></b> </a>
+        <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/Login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+    </div>
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+        <a href="/club" class="w3-bar-item w3-button w3-padding-large">Club Space</a>
+        <a href="/club" class="w3-bar-item w3-button w3-padding-large">Learn more about us</a>
+        <a href="/Login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+    </div>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+    <!-- Header of the club -->
+
+    <div class="w3-display-container w3-center">
+        <img src="/images/imageClubTest1.jpg" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-wide w3-text-white w3-padding-32 w3-hide-small">
+            <span class="w3-tag ">  <h3>{{club.name}}</h3>
+            <p><b>Testing, testing... Is this working?</b></p>
+            </span>
+        </div>
+    </div>
+
+
+    <!-- The Club body Section -->
+    <div class="w3-container w3-content w3-center w3-padding-64 w3-light-grey" style="max-width:800px" id="band">
+        <h2 class="w3-wide">{{club.name}}</h2>
+
+        <p class="w3-justify"> <h6>{{{club.description}}}</h6> </p>
+        <br>
+
+        <div class="w3-center w3-padding-32">
+            <h2 class="w3-wide">Blogs</h2>
+            <p>
+            {{#blog}}
+                <a href="{{club.club_id}}/blog/{{blog_id}}">{{title}} {{blog_id}}</a><br>
+            {{/blog}}
+            </p>
+
+            <p>
+                <button class="w3-button w3-black "><a href="{{club.club_id}}/blog/new">Write a new blog</a></button>
+                <br>
+            </p>
+
+        </div>
+    </div>
+    <h1 style="text-align: center"> Join the club </h1>
+    <div style="text-align:center; padding-bottom: 50px">
+        <a href="/club/application" ><button class="w3-button w3-black ">I want to be in this club</button> </a>
+
+    </div>
+
+
+    <!-- The Contact Section -->
+    <div class="w3-container w3-content w3-padding-64 w3-margin-bottom" style="max-width:800px" id="contact">
+        <h2 class="w3-wide w3-center">Contact</h2>
+        <div class="w3-opacity w3-center">
+            <p><i> Need help? {{club.admin.nickname}} is the admin of {{club.name}}</i></p>
+        <div class="w3-row w3-padding-32">
+            <p>Admin contact:</p>
+            <div class="fa fa-envelope w3-large" style="width:100px"><br><br>{{club.admin.email}} </div>
+            <p>Club contact:</p>
+            <div class="fa fa-envelope w3-large" style="width:100px"><br><br>{{club.contact}} </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- End Page Content -->
+</div>
+
+<!-- Image end -->
+<img src="/images/imageClubTest1.jpg" class="w3-image w3-greyscale-min w3-container" style="width:100%">
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+    <div class="w3-container w3-center w3-padding-32">
+    <p>
+        <a href="/club"> <button type="button" class="cancelbtn">Go Back</button></a>
+    </p>
+
+    </div>
+</footer>
+
+
+
+</body>
+</html>
