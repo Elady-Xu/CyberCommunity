@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Club</title>
+    <link rel="import" href="other.html">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <script src="/js/jquery.js"></script>
+    <script>
+        $(function (){
+            $(".header").load()("header.html");
+        });
+    </script>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-indigo w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-black"> <b><u>Home</u></b> </a>
+        <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/Login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+    </div>
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href= "/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+        <a href="/club" class="w3-bar-item w3-button w3-padding-large">Club Space</a>
+        <a href="/club" class="w3-bar-item w3-button w3-padding-large">Learn more about us</a>
+        <a href="/Login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+    </div>
+</div>
+<!-- Header -->
+<header class="w3-container w3-black w3-center" style="padding:10% 0px">
+    <h1 class="w3-margin w3-jumbo w3-w3-light-grey">Edit club</h1>
+</header>
+
+
+<form action="/club/edit" method="post" class="container">
+    <p>Name of the club: </p>
+    <input type='text' name='name'  placeholder="Enter the name here"/>
+    <p>The contact of this club</p>
+    <input type='text' name='contact'   placeholder="Enter the contact here"/>
+    <br>
+    <p>Brief description of the club</p>
+    <textarea type="text" name='description'  placeholder="Enter the description here"></textarea>
+    <br>
+
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
+    <br>
+
+    <button type="submit">Create</button>
+    <a href="javascript:history.back()">
+        <button type="button" class="cancelbtn">Cancel</button>
+    </a>
+</form>
+
+</body>
+</html>
+
+
+
+

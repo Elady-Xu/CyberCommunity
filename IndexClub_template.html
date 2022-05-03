@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Club Space</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    </style>
+</head>
+<body class="w3-black w3-content" style="max-width:100%">
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-indigo w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        {{#notlogged}}
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large  w3-black">Club Space</a>
+        <!--page demonstrate notlogged for user not logged / logged for user logged admin if the actual user is a user-->
+        <a href="/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+        {{/notlogged}}
+        {{#logged}}
+        {{#notAdmin}}
+        <a href="/logged/{{user.id_User}}" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/logged/{{user.id_User}}/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large  w3-black">Club Space</a>
+        <a href="/logged/{{user.id_User}}/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/logged/{{user.id_User}}/user" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        {{/notAdmin}}
+
+        {{#admin}}
+        <a href="/logged/{{user.id_User}}/admin" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/logged/{{user.id_User}}/admin/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large  w3-black">Club Space</a>
+        <a href="/logged/{{user.id_User}}/admin/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/logged/{{user.id_User}}/admin/user" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        <a href="/logged/{{user.id_User}}/admin/user/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
+        {{/admin}}
+        <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log out</a>
+        {{/logged}}
+    </div>
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        {{#notlogged}}
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large  w3-black">Club Space</a>
+        <!--page demonstrate notlogged for user not logged / logged for user logged admin if the actual user is a user-->
+        <a href="/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+        {{/notlogged}}
+        {{#logged}}
+        {{#notAdmin}}
+        <a href="/logged/{{user.id_User}}" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/logged/{{user.id_User}}/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large  w3-black">Club Space</a>
+        <a href="/logged/{{user.id_User}}/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/logged/{{user.id_User}}/user" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        {{/notAdmin}}
+
+        {{#admin}}
+        <a href="/logged/{{user.id_User}}/admin" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/logged/{{user.id_User}}/admin/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large  w3-black">Club Space</a>
+        <a href="/logged/{{user.id_User}}/admin/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/logged/{{user.id_User}}/admin/user" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        <a href="/logged/{{user.id_User}}/admin/user/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
+        {{/admin}}
+        <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log out</a>
+        {{/logged}}
+    </div>
+</div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="alignment: center">
+
+    <!-- Header -->
+    <header class="w3-container w3-black w3-center" style="padding:10% 0px">
+        <h1 class="w3-margin w3-jumbo ">Club Space</h1>
+        <p class="w3-xlarge"><u>Welcome to the club area</u></p>
+    </header>
+    <h1 style="text-align: center"> Clubs</h1>
+    <ul style="text-align: center">
+        {{#clubs}}
+        <div style="alignment: center">
+        <button class="w3-button w3-light-grey "><a href="/club/{{club_id}}">{{name}} {{club_id}}</a></button>
+        </div>
+        <br>
+
+        {{/clubs}}
+    </ul>
+
+
+    <!-- Management Club -->
+    {{#admin}}
+    <div class="w3-container w3-padding-large w3-center" style="margin-bottom:32px">
+        <h4><b><u>Management Club</u></b></h4>
+        <p>What a great responsibility to bear, create a new club, destroy it or modify it... So please be sensible dear user</p>
+
+        <div style="alignment: center">
+            <div class="w3-padding-medium w3-margin-bottom w3-third">
+                <a href="/club/update"><button class="w3-button w3-light-grey">Creat new club</button></a>
+                <br>
+                Choose the name, the description, you, who is going to manage a club be prepared for the power
+            </div>
+
+            <div class="w3-padding-medium w3-margin-bottom w3-third">
+                <a href="/club/delete"><button class="w3-button w3-light-grey">Delete a club</button></a>
+                <br>
+                Destroying the life you created, what happened to you, my old friend... You have changed in this time...
+            </div>
+
+            <div class="w3-padding-medium w3-margin-bottom w3-third">
+                <a href="/club/Edit"><button class="w3-button w3-light-grey">Edit a club</button></a>
+                <br>
+                Changes, everyone is afraid of them, but do not fear admin, you are a wise person, aren't you?
+            </div>
+
+        </div>
+    </div>
+    {{/admin}}
+
+    <!-- End page content -->
+</div>
+
+<script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
+
+</body>
+
+</html>
+
+<!-- To search for clubs-->
